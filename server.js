@@ -38,8 +38,8 @@ var gallaryRoute=require('./route/gallary');
 app.use('/gallary',gallaryRoute);
 
 var mongoose= require('mongoose');
-// mongoose.connect('mongodb://localhost:27017/bhoj_soft_solution').then(function(){
-mongoose.connect(process.env.MONGO_URL).then(function(){
+// mongoose.connect(process.env.MONGO_URL).then(function(){
+    mongoose.connect('mongodb+srv://admin123:admin%40123@cluster0.hoe2jrc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0').then(function(){
     console.log("connection successful");
 })
 .catch(function(error){
