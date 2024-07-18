@@ -7,43 +7,42 @@ app.use(bodyparser.urlencoded({extended:false}))
 app.use(bodyparser.json());
 
 
-var trainerRoute=require('./route/trainer')
+var trainerRoute=require('./app/route/trainer')
 app.use('/trainer',trainerRoute)
 
-var educationRoute=require('./route/education');
+var educationRoute=require('./app/route/education');
 app.use('/education',educationRoute);
 
-var productRoute=require('./route/product');
+var productRoute=require('./app/route/product');
 app.use("/product",productRoute);
 
-var testemonialRoute=require('./route/testmonial')
+var testemonialRoute=require('./app/route/testmonial')
 app.use("/testmonial",testemonialRoute);
 
-var eventSchema=require('./route/event');
+var eventSchema=require('./app/route/event');
 app.use("/event",eventSchema);
 
-var socialMediaSchema=require('./route/social_media');
+var socialMediaSchema=require('./app/route/social_media');
 app.use("/socialMedia",socialMediaSchema);
 
-var userRout=require('./route/user');
+var userRout=require('./app/route/user');
 app.use("/user",userRout);
 
-var batchRoute=require('./route/batch');
+var batchRoute=require('./app/route/batch');
 app.use("/batch",batchRoute);
 
-var aboutRoute=require('./route/about');
+var aboutRoute=require('./app/route/about');
 app.use("/about",aboutRoute);
 
-var gallaryRoute=require('./route/gallary');
+var gallaryRoute=require('./app/route/gallary');
 app.use('/gallary',gallaryRoute);
 
 var mongoose= require('mongoose');
-// mongoose.connect(process.env.MONGO_URL).then(function(){
-    mongoose.connect('mongodb+srv://admin123:admin%40123@cluster0.hoe2jrc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0').then(function(){
+mongoose.connect('mongodb+srv://admin123:admin%40123@cluster0.hoe2jrc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0').then(function(){
     console.log("connection successful");
 })
-.catch(function(error){
-    console.log("failed",error);
+.catch(function(){
+    console.log("failed");
 });
 
 
